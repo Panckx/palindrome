@@ -9,7 +9,12 @@ function Phrase(content) {
   this.content = content;
 
   this.processedContent = function processedContent() {
-    return this.content.toLowerCase();
+    return this.letters().toLowerCase();
+  }
+
+  this.letters = function letters() {
+    return (this.content.match(/[a-z]/gi) || []).join("");
+    return Array.from(this.content).filter(x => x.match(/[a-zA-Z]/)).join("");
   }
 
   this.palindrome = function palindrome() {
